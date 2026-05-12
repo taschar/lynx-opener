@@ -49,16 +49,18 @@
       color: #666;
     }
 
-    input[type="text"] {
+    input[type="text"], select {
       width: 100%;
       padding: 10px;
       border: 2px solid #ddd;
       border-radius: 6px;
       box-sizing: border-box;
       transition: border-color 0.3s;
+      background-color: white;
+      font-size: 1rem;
     }
 
-    input[type="text"]:focus {
+    input[type="text"]:focus, select:focus {
       border-color: var(--accent-color);
       outline: none;
     }
@@ -101,9 +103,23 @@
   <div class="container">
     <h1>Lynx Opener</h1>
     <div class="form-group">
-      <label for="terminal">Terminal Command</label>
-      <input type="text" id="terminal" placeholder="e.g., gnome-terminal, alacritty, kitty">
-      <p class="help-text">The command used to launch your preferred terminal emulator.</p>
+      <label for="terminal-select">Terminal Emulator</label>
+      <select id="terminal-select">
+        <option value="x-terminal-emulator">Default (x-terminal-emulator)</option>
+        <option value="gnome-terminal">GNOME Terminal</option>
+        <option value="xfce4-terminal">XFCE4 Terminal</option>
+        <option value="konsole">Konsole</option>
+        <option value="kitty">Kitty</option>
+        <option value="alacritty">Alacritty</option>
+        <option value="xterm">XTerm</option>
+        <option value="custom">Other (Manual Entry)</option>
+      </select>
+      <p class="help-text">Choose your preferred terminal emulator.</p>
+    </div>
+    <div id="custom-terminal-group" class="form-group" style="display: none;">
+      <label for="terminal-custom">Custom Command</label>
+      <input type="text" id="terminal-custom" placeholder="e.g., foot, termite">
+      <p class="help-text">Enter the command to launch your terminal.</p>
     </div>
     <div class="form-group checkbox-group">
       <label for="fullscreen">

@@ -1,7 +1,14 @@
 // Saves options to chrome.storage
 function save_options() {
-  const terminal = document.getElementById('terminal').value;
+  const select = document.getElementById('terminal-select');
+  const customInput = document.getElementById('terminal-custom');
   const fullscreen = document.getElementById('fullscreen').checked;
+  
+  let terminal = select.value;
+  if (terminal === 'custom') {
+    terminal = customInput.value;
+  }
+
   chrome.storage.sync.set({
     terminal: terminal,
     fullscreen: fullscreen
@@ -22,10 +29,41 @@ function restore_options() {
     terminal: 'x-terminal-emulator',
     fullscreen: true
   }, (items) => {
-    document.getElementById('terminal').value = items.terminal;
+    const select = document.getElementById('terminal-select');
+    const customInput = document.getElementById('terminal-custom');
+    const customGroup = document.getElementById('custom-terminal-group');
+    
     document.getElementById('fullscreen').checked = items.fullscreen;
+
+    // Check if the saved terminal is one of the options
+    let found = false;
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === items.terminal) {
+        select.selectedIndex = i;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      select.value = 'custom';
+      customInput.value = items.terminal;
+      customGroup.style.display = 'block';
+    } else {
+      customGroup.style.display = 'none';
+    }
   });
 }
+
+// Handle select change
+document.getElementById('terminal-select').addEventListener('change', (e) => {
+  const customGroup = document.getElementById('custom-terminal-group');
+  if (e.target.value === 'custom') {
+    customGroup.style.display = 'block';
+  } else {
+    customGroup.style.display = 'none';
+  }
+});
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
