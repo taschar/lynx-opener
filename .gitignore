@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS
+.DS_Store
+.directory
+
+# Extension Specific
+*.pem
+host/com.lynx.opener.json

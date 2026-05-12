@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Lynx Opener",
+  "version": "1.0",
+  "description": "Open links in Lynx browser using your favorite Linux terminal.",
+  "permissions": [
+    "contextMenus",
+    "nativeMessaging",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "minimum_chrome_version": "88"
+}
