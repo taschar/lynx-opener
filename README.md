@@ -5,7 +5,8 @@ Lynx Opener is a Chrome-based browser extension for Linux that allows you to ope
 ## Features
 
 - **Context Menu Integration:** Right-click any link to see the "Open link in Lynx" option.
-- **Customizable Terminal:** Choose your preferred terminal (gnome-terminal, alacritty, kitty, xterm, etc.) from the extension settings.
+- **Customizable Terminal:** Choose your preferred terminal (gnome-terminal, alacritty, kitty, xterm, etc.).
+- **Fullscreen Toggle:** Option to launch the terminal in fullscreen mode or windowed mode.
 - **Lightweight & Fast:** Uses Native Messaging to bridge the browser with your OS.
 - **Modern UI:** Clean and beautiful settings page.
 
@@ -15,7 +16,7 @@ To use this extension, you must have the following installed on your Linux syste
 
 1.  **Lynx Browser:** `sudo apt install lynx` (or your distro's equivalent).
 2.  **Python 3:** Required for the native messaging host.
-3.  **Terminal Emulator:** The terminal you want to use (e.g., gnome-terminal, konsole, kitty).
+3.  **Terminal Emulator:** The terminal you want to use.
 
 ## Installation
 
@@ -36,18 +37,27 @@ To use this extension, you must have the following installed on your Linux syste
 3.  When prompted, paste the **Extension ID** you copied in the previous step.
 4.  The script will register the host for Chrome, Chromium, Brave, and Edge.
 
-## Configuration
+## Configuration & Settings
 
-1.  Click on the Lynx Opener extension icon or go to its details in `chrome://extensions/`.
-2.  Open **Extension options**.
-3.  Enter the command for your preferred terminal (e.g., `alacritty`).
-4.  Click **Save Settings**.
+### Accessing Settings
+To customize the extension:
+1.  Click the **puzzle piece icon** (Extensions) in your browser toolbar.
+2.  Find **Lynx Opener** and click the three dots (More actions).
+3.  Select **Options**. Alternatively, go to `chrome://extensions/`, find Lynx Opener, and click **Details** -> **Extension options**.
+
+### Available Options
+- **Terminal Command:** 
+  - **Default:** `x-terminal-emulator` (This points to your system's default terminal in most Debian-based distros like Ubuntu).
+  - You can change this to any installed terminal command (e.g., `gnome-terminal`, `kitty`, `alacritty`, `konsole`).
+- **Open in Fullscreen:**
+  - A toggle to decide if the terminal should open in fullscreen mode.
+  - **Default:** Enabled (On).
 
 ## How it Works
 
 The extension uses Chrome's **Native Messaging API**. 
 - The `background.js` script detects the context menu click.
-- it sends the URL and your terminal preference to a small Python script (`host/lynx_opener.py`).
+- It sends the URL, your terminal preference, and fullscreen toggle to a Python script (`host/lynx_opener.py`).
 - The Python script executes the command to launch the terminal with Lynx.
 
 ## License

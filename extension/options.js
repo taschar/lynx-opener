@@ -1,8 +1,10 @@
 // Saves options to chrome.storage
 function save_options() {
   const terminal = document.getElementById('terminal').value;
+  const fullscreen = document.getElementById('fullscreen').checked;
   chrome.storage.sync.set({
-    terminal: terminal
+    terminal: terminal,
+    fullscreen: fullscreen
   }, () => {
     // Update status to let user know options were saved.
     const status = document.getElementById('status');
@@ -17,9 +19,11 @@ function save_options() {
 // stored in chrome.storage.
 function restore_options() {
   chrome.storage.sync.get({
-    terminal: 'x-terminal-emulator'
+    terminal: 'x-terminal-emulator',
+    fullscreen: true
   }, (items) => {
     document.getElementById('terminal').value = items.terminal;
+    document.getElementById('fullscreen').checked = items.fullscreen;
   });
 }
 

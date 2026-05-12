@@ -22,30 +22,33 @@ def get_message():
     message = sys.stdin.buffer.read(message_length).decode('utf-8')
     return json.loads(message)
 
-def open_lynx(url, terminal):
+def open_lynx(url, terminal, fullscreen):
     try:
-        # Different terminals use different flags for fullscreen/maximize.
-        # Note: True "Fullscreen" often requires specific window manager support,
-        # but these flags cover the most common terminal-specific behaviors.
-        
         if terminal == 'gnome-terminal':
-            cmd = [terminal, '--full-screen', '--', 'lynx', url]
+            cmd = [terminal]
+            if fullscreen: cmd.append('--full-screen')
+            cmd.extend(['--', 'lynx', url])
         elif terminal == 'konsole':
-            cmd = [terminal, '--fullscreen', '-e', 'lynx', url]
+            cmd = [terminal]
+            if fullscreen: cmd.append('--fullscreen')
+            cmd.extend(['-e', 'lynx', url])
         elif terminal == 'xfce4-terminal':
-            cmd = [terminal, '--fullscreen', '-e', f'lynx {url}']
+            cmd = [terminal]
+            if fullscreen: cmd.append('--fullscreen')
+            cmd.extend(['-e', f'lynx {url}'])
         elif terminal == 'kitty':
-            cmd = [terminal, '--start-as=fullscreen', 'lynx', url]
+            cmd = [terminal]
+            if fullscreen: cmd.append('--start-as=fullscreen')
+            cmd.extend(['lynx', url])
         elif terminal == 'alacritty':
-            cmd = [terminal, '--option', 'window.startup_mode=Fullscreen', '-e', 'lynx', url]
+            cmd = [terminal]
+            if fullscreen: cmd.extend(['--option', 'window.startup_mode=Fullscreen'])
+            cmd.extend(['-e', 'lynx', url])
         else:
-            # Default fallback (most terminals support -e)
-            # We try to use 'maximize' as a generic attempt if supported
             cmd = [terminal, '-e', 'lynx', url]
 
-        # Use subprocess.Popen to avoid blocking
         subprocess.Popen(cmd, start_new_session=True)
-        return {"status": "success", "message": f"Launched {terminal} in fullscreen with lynx"}
+        return {"status": "success", "message": f"Launched {terminal} (Fullscreen: {fullscreen})"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
@@ -55,9 +58,10 @@ def main():
             message = get_message()
             url = message.get('url')
             terminal = message.get('terminal', 'x-terminal-emulator')
+            fullscreen = message.get('fullscreen', True)
             
             if url:
-                response = open_lynx(url, terminal)
+                response = open_lynx(url, terminal, fullscreen)
                 send_message(json.dumps(response))
         except EOFError:
             break
