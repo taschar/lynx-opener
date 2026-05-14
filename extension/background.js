@@ -1,17 +1,20 @@
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
+// Cross-browser compatibility
+const browserInstance = typeof browser !== 'undefined' ? browser : chrome;
+
+browserInstance.runtime.onInstalled.addListener(() => {
+  browserInstance.contextMenus.create({
     id: "openInLynx",
     title: "Open link in Lynx",
     contexts: ["link"]
   });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+browserInstance.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "openInLynx") {
     const url = info.linkUrl;
     
     // Get the configured terminal and fullscreen preference from storage
-    chrome.storage.sync.get({ 
+    browserInstance.storage.sync.get({ 
       terminal: 'x-terminal-emulator',
       fullscreen: true 
     }, (items) => {
@@ -19,12 +22,12 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       const fullscreen = items.fullscreen;
       
       // Send message to Native Messaging Host
-      chrome.runtime.sendNativeMessage(
+      browserInstance.runtime.sendNativeMessage(
         'com.lynx.opener',
         { url: url, terminal: terminal, fullscreen: fullscreen },
         (response) => {
-          if (chrome.runtime.lastError) {
-            console.error("ERROR: " + chrome.runtime.lastError.message);
+          if (browserInstance.runtime.lastError) {
+            console.error("ERROR: " + browserInstance.runtime.lastError.message);
           } else {
             console.log("Response: ", response);
           }

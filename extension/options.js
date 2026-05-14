@@ -1,12 +1,15 @@
+// Cross-browser compatibility
+const browserInstance = typeof browser !== 'undefined' ? browser : chrome;
+
 // Localization
 function localize() {
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    element.textContent = chrome.i18n.getMessage(key);
+    element.textContent = browserInstance.i18n.getMessage(key);
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
     const key = element.getAttribute('data-i18n-placeholder');
-    element.placeholder = chrome.i18n.getMessage(key);
+    element.placeholder = browserInstance.i18n.getMessage(key);
   });
 }
 
@@ -21,13 +24,13 @@ function save_options() {
     terminal = customInput.value;
   }
 
-  chrome.storage.sync.set({
+  browserInstance.storage.sync.set({
     terminal: terminal,
     fullscreen: fullscreen
   }, () => {
     // Update status to let user know options were saved.
     const status = document.getElementById('status');
-    status.textContent = chrome.i18n.getMessage('statusSaved');
+    status.textContent = browserInstance.i18n.getMessage('statusSaved');
     setTimeout(() => {
       status.textContent = '';
     }, 2000);
@@ -37,7 +40,7 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  chrome.storage.sync.get({
+  browserInstance.storage.sync.get({
     terminal: 'x-terminal-emulator',
     fullscreen: true
   }, (items) => {
