@@ -97,39 +97,40 @@
       height: 1rem;
       color: #27ae60;
     }
-  </style>
-</head>
-<body>
+  <title data-i18n="settingsTitle">Lynx Opener Settings</title>
+  ...
+  <body>
   <div class="container">
-    <h1>Lynx Opener</h1>
+    <h1 data-i18n="appName">Lynx Opener</h1>
     <div class="form-group">
-      <label for="terminal-select">Terminal Emulator</label>
+      <label for="terminal-select" data-i18n="terminalLabel">Terminal Emulator</label>
       <select id="terminal-select">
-        <option value="x-terminal-emulator">Default (x-terminal-emulator)</option>
+        <option value="x-terminal-emulator" data-i18n="defaultTerminal">Default (x-terminal-emulator)</option>
         <option value="gnome-terminal">GNOME Terminal</option>
         <option value="xfce4-terminal">XFCE4 Terminal</option>
         <option value="konsole">Konsole</option>
         <option value="kitty">Kitty</option>
         <option value="alacritty">Alacritty</option>
         <option value="xterm">XTerm</option>
-        <option value="custom">Other (Manual Entry)</option>
+        <option value="custom" data-i18n="otherOption">Other (Manual Entry)</option>
       </select>
-      <p class="help-text">Choose your preferred terminal emulator.</p>
+      <p class="help-text" data-i18n="terminalHelp">Choose your preferred terminal emulator.</p>
     </div>
     <div id="custom-terminal-group" class="form-group" style="display: none;">
-      <label for="terminal-custom">Custom Command</label>
-      <input type="text" id="terminal-custom" placeholder="e.g., foot, termite">
-      <p class="help-text">Enter the command to launch your terminal.</p>
+      <label for="terminal-custom" data-i18n="customTerminalLabel">Custom Command</label>
+      <input type="text" id="terminal-custom" data-i18n-placeholder="customTerminalPlaceholder" placeholder="e.g., foot, termite">
+      <p class="help-text" data-i18n="customTerminalHelp">Enter the command to launch your terminal.</p>
     </div>
     <div class="form-group checkbox-group">
       <label for="fullscreen">
-        <input type="checkbox" id="fullscreen"> Open in Fullscreen
+        <input type="checkbox" id="fullscreen"> <span data-i18n="fullscreenLabel">Open in Fullscreen</span>
       </label>
-      <p class="help-text">Try to launch the terminal window in fullscreen mode.</p>
+      <p class="help-text" data-i18n="fullscreenHelp">Try to launch the terminal window in fullscreen mode.</p>
     </div>
-    <button id="save">Save Settings</button>
+    <button id="save" data-i18n="saveButton">Save Settings</button>
     <div id="status"></div>
   </div>
+
   <script src="options.js"></script>
 </body>
 </html>

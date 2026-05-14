@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Lynx Opener",
-  "version": "1.0",
-  "description": "Open links in Lynx browser using your favorite Linux terminal.",
+  "name": "__MSG_appName__",
+  "version": "1.1",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
   "permissions": [
     "contextMenus",
     "nativeMessaging",

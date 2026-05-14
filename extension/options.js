@@ -1,3 +1,15 @@
+// Localization
+function localize() {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    element.textContent = chrome.i18n.getMessage(key);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    element.placeholder = chrome.i18n.getMessage(key);
+  });
+}
+
 // Saves options to chrome.storage
 function save_options() {
   const select = document.getElementById('terminal-select');
@@ -15,7 +27,7 @@ function save_options() {
   }, () => {
     // Update status to let user know options were saved.
     const status = document.getElementById('status');
-    status.textContent = 'Settings saved!';
+    status.textContent = chrome.i18n.getMessage('statusSaved');
     setTimeout(() => {
       status.textContent = '';
     }, 2000);
@@ -65,5 +77,8 @@ document.getElementById('terminal-select').addEventListener('change', (e) => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', restore_options);
+document.addEventListener('DOMContentLoaded', () => {
+  localize();
+  restore_options();
+});
 document.getElementById('save').addEventListener('click', save_options);
