@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "Ouvrez des liens dans le navigateur Lynx en utilisant votre terminal Linux préféré." },
+  "settingsTitle": { "message": "Paramètres de Lynx Opener" },
+  "terminalLabel": { "message": "Émulateur de terminal" },
+  "terminalHelp": { "message": "Choisissez votre émulateur de terminal préféré." },
+  "defaultTerminal": { "message": "Par défaut (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "Commande personnalisée" },
+  "customTerminalPlaceholder": { "message": "ex: foot, termite" },
+  "customTerminalHelp": { "message": "Entrez la commande pour lancer votre terminal." },
+  "fullscreenLabel": { "message": "Ouvrir en plein écran" },
+  "fullscreenHelp": { "message": "Essayer de lancer la fenêtre du terminal en mode plein écran." },
+  "saveButton": { "message": "Enregistrer les paramètres" },
+  "statusSaved": { "message": "Paramètres enregistrés !" },
+  "otherOption": { "message": "Autre (Saisie manuelle)" }
+}

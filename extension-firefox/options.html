@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="settingsTitle">Lynx Opener Settings</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #333;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+      background-color: white;
+      font-size: 1rem;
+    }
+
+    input[type="text"]:focus, select:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    .help-text {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.1s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      height: 1rem;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 data-i18n="appName">Lynx Opener</h1>
+    <div class="form-group">
+      <label for="terminal-select" data-i18n="terminalLabel">Terminal Emulator</label>
+      <select id="terminal-select">
+        <option value="x-terminal-emulator" data-i18n="defaultTerminal">Default (x-terminal-emulator)</option>
+        <option value="gnome-terminal">GNOME Terminal</option>
+        <option value="xfce4-terminal">XFCE4 Terminal</option>
+        <option value="konsole">Konsole</option>
+        <option value="kitty">Kitty</option>
+        <option value="alacritty">Alacritty</option>
+        <option value="xterm">XTerm</option>
+        <option value="custom" data-i18n="otherOption">Other (Manual Entry)</option>
+      </select>
+      <p class="help-text" data-i18n="terminalHelp">Choose your preferred terminal emulator.</p>
+    </div>
+    <div id="custom-terminal-group" class="form-group" style="display: none;">
+      <label for="terminal-custom" data-i18n="customTerminalLabel">Custom Command</label>
+      <input type="text" id="terminal-custom" data-i18n-placeholder="customTerminalPlaceholder" placeholder="e.g., foot, termite">
+      <p class="help-text" data-i18n="customTerminalHelp">Enter the command to launch your terminal.</p>
+    </div>
+    <div class="form-group checkbox-group">
+      <label for="fullscreen">
+        <input type="checkbox" id="fullscreen"> <span data-i18n="fullscreenLabel">Open in Fullscreen</span>
+      </label>
+      <p class="help-text" data-i18n="fullscreenHelp">Try to launch the terminal window in fullscreen mode.</p>
+    </div>
+    <button id="save" data-i18n="saveButton">Save Settings</button>
+    <div id="status"></div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

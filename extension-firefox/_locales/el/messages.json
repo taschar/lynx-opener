@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "Ανοίξτε συνδέσμους στον περιηγητή Lynx χρησιμοποιώντας το αγαπημένο σας τερματικό Linux." },
+  "settingsTitle": { "message": "Ρυθμίσεις Lynx Opener" },
+  "terminalLabel": { "message": "Εξομοιωτής Τερματικού" },
+  "terminalHelp": { "message": "Επιλέξτε τον αγαπημένο σας εξομοιωτή τερματικού." },
+  "defaultTerminal": { "message": "Προεπιλογή (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "Προσαρμοσμένη Εντολή" },
+  "customTerminalPlaceholder": { "message": "π.χ., foot, termite" },
+  "customTerminalHelp": { "message": "Εισάγετε την εντολή για την εκκίνηση του τερματικού σας." },
+  "fullscreenLabel": { "message": "Άνοιγμα σε Πλήρη Οθόνη" },
+  "fullscreenHelp": { "message": "Προσπάθεια εκκίνησης του παραθύρου τερματικού σε λειτουργία πλήρους οθόνης." },
+  "saveButton": { "message": "Αποθήκευση Ρυθμίσεων" },
+  "statusSaved": { "message": "Οι ρυθμίσεις αποθηκεύτηκαν!" },
+  "otherOption": { "message": "Άλλο (Χειροκίνητη Εισαγωγή)" }
+}

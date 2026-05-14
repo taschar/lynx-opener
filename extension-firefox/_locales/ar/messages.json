@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "افتح الروابط في متصفح Lynx باستخدام محاكي الطرفية المفضل لديك في Linux." },
+  "settingsTitle": { "message": "إعدادات Lynx Opener" },
+  "terminalLabel": { "message": "محاكي الطرفية" },
+  "terminalHelp": { "message": "اختر محاكي الطرفية المفضل لديك." },
+  "defaultTerminal": { "message": "الافتراضي (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "أمر مخصص" },
+  "customTerminalPlaceholder": { "message": "مثلاً: foot, termite" },
+  "customTerminalHelp": { "message": "أدخل الأمر لتشغيل الطرفية الخاصة بك." },
+  "fullscreenLabel": { "message": "فتح في وضع ملء الشاشة" },
+  "fullscreenHelp": { "message": "محاولة تشغيل نافذة الطرفية في وضع ملء الشاشة." },
+  "saveButton": { "message": "حفظ الإعدادات" },
+  "statusSaved": { "message": "تم حفظ الإعدادات!" },
+  "otherOption": { "message": "أخرى (إدخال يدوي)" }
+}

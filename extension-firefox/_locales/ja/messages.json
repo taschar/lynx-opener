@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "お気に入りのLinuxターミナルを使用して、Lynxブラウザでリンクを開きます。" },
+  "settingsTitle": { "message": "Lynx Openerの設定" },
+  "terminalLabel": { "message": "ターミナルエミュレータ" },
+  "terminalHelp": { "message": "好みのターミナルエミュレータを選択してください。" },
+  "defaultTerminal": { "message": "デフォルト (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "カスタムコマンド" },
+  "customTerminalPlaceholder": { "message": "例: foot, termite" },
+  "customTerminalHelp": { "message": "ターミナルを起動するためのコマンドを入力してください。" },
+  "fullscreenLabel": { "message": "全画面で開く" },
+  "fullscreenHelp": { "message": "ターミナルウィンドウを全画面モードで起動しようとします。" },
+  "saveButton": { "message": "設定を保存" },
+  "statusSaved": { "message": "設定が保存されました！" },
+  "otherOption": { "message": "その他（手動入力）" }
+}

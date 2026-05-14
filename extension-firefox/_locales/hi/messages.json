@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "अपने पसंदीदा लिनक्स टर्मिनल का उपयोग करके लिंक्स ब्राउज़र में लिंक खोलें।" },
+  "settingsTitle": { "message": "Lynx Opener सेटिंग्स" },
+  "terminalLabel": { "message": "टर्मिनल एमुलेटर" },
+  "terminalHelp": { "message": "अपना पसंदीदा टर्मिनल एमुलेटर चुनें।" },
+  "defaultTerminal": { "message": "डिफ़ॉल्ट (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "कस्टम कमांड" },
+  "customTerminalPlaceholder": { "message": "जैसे: foot, termite" },
+  "customTerminalHelp": { "message": "अपना टर्मिनल लॉन्च करने के लिए कमांड दर्ज करें।" },
+  "fullscreenLabel": { "message": "फुलस्क्रीन में खोलें" },
+  "fullscreenHelp": { "message": "टर्मिनल विंडो को फुलस्क्रीन मोड में लॉन्च करने का प्रयास करें।" },
+  "saveButton": { "message": "सेटिंग्स सहेजें" },
+  "statusSaved": { "message": "सेटिंग्स सहेजी गईं!" },
+  "otherOption": { "message": "अन्य (मैनुअल प्रविष्टि)" }
+}
