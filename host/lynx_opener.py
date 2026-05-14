@@ -35,8 +35,8 @@ def open_lynx(url, terminal, fullscreen):
         elif terminal == 'xfce4-terminal':
             cmd = [terminal]
             if fullscreen: cmd.append('--fullscreen')
-            # xfce4-terminal's -e takes a command string
-            cmd.extend(['-e', f'lynx "{url}"'])
+            # Using --command instead of -e for better handling of arguments
+            cmd.extend(['--command', f'lynx "{url}"'])
         elif terminal == 'xterm':
             cmd = [terminal]
             if fullscreen: cmd.append('-fullscreen')
