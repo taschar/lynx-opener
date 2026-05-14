@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "Deschideți linkuri în browserul Lynx folosind terminalul Linux preferat." },
+  "settingsTitle": { "message": "Setări Lynx Opener" },
+  "terminalLabel": { "message": "Emulator de terminal" },
+  "terminalHelp": { "message": "Alegeți emulatorul de terminal preferat." },
+  "defaultTerminal": { "message": "Implicit (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "Comandă personalizată" },
+  "customTerminalPlaceholder": { "message": "ex: foot, termite" },
+  "customTerminalHelp": { "message": "Introduceți comanda pentru a lansa terminalul." },
+  "fullscreenLabel": { "message": "Deschide pe tot ecranul" },
+  "fullscreenHelp": { "message": "Încercați să lansați fereastra terminalului în modul ecran complet." },
+  "saveButton": { "message": "Salvează setările" },
+  "statusSaved": { "message": "Setări salvate!" },
+  "otherOption": { "message": "Altele (Introducere manuală)" }
+}

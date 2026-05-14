@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "使用您最喜欢的 Linux 终端在 Lynx 浏览器中打开链接。" },
+  "settingsTitle": { "message": "Lynx Opener 设置" },
+  "terminalLabel": { "message": "终端模拟器" },
+  "terminalHelp": { "message": "选择您喜欢的终端模拟器。" },
+  "defaultTerminal": { "message": "默认 (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "自定义命令" },
+  "customTerminalPlaceholder": { "message": "例如：foot, termite" },
+  "customTerminalHelp": { "message": "输入启动终端的命令。" },
+  "fullscreenLabel": { "message": "全屏打开" },
+  "fullscreenHelp": { "message": "尝试以全屏模式启动终端窗口。" },
+  "saveButton": { "message": "保存设置" },
+  "statusSaved": { "message": "设置已保存！" },
+  "otherOption": { "message": "其他（手动输入）" }
+}

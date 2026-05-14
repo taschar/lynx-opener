@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "Buka tautan di browser Lynx menggunakan terminal Linux favorit Anda." },
+  "settingsTitle": { "message": "Pengaturan Lynx Opener" },
+  "terminalLabel": { "message": "Emulator Terminal" },
+  "terminalHelp": { "message": "Pilih emulator terminal pilihan Anda." },
+  "defaultTerminal": { "message": "Default (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "Perintah Kustom" },
+  "customTerminalPlaceholder": { "message": "misalnya: foot, termite" },
+  "customTerminalHelp": { "message": "Masukkan perintah untuk meluncurkan terminal Anda." },
+  "fullscreenLabel": { "message": "Buka di Layar Penuh" },
+  "fullscreenHelp": { "message": "Coba luncurkan jendela terminal dalam mode layar penuh." },
+  "saveButton": { "message": "Simpan Pengaturan" },
+  "statusSaved": { "message": "Pengaturan disimpan!" },
+  "otherOption": { "message": "Lainnya (Entri Manual)" }
+}

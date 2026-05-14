@@ -1,0 +1,16 @@
+{
+  "appName": { "message": "Lynx Opener" },
+  "appDesc": { "message": "Buksan ang mga link sa Lynx browser gamit ang iyong paboritong Linux terminal." },
+  "settingsTitle": { "message": "Mga Setting ng Lynx Opener" },
+  "terminalLabel": { "message": "Terminal Emulator" },
+  "terminalHelp": { "message": "Piliin ang iyong gustong terminal emulator." },
+  "defaultTerminal": { "message": "Default (x-terminal-emulator)" },
+  "customTerminalLabel": { "message": "Custom na Command" },
+  "customTerminalPlaceholder": { "message": "hal: foot, termite" },
+  "customTerminalHelp": { "message": "Ilagay ang command para ilunsad ang iyong terminal." },
+  "fullscreenLabel": { "message": "Buksan sa Fullscreen" },
+  "fullscreenHelp": { "message": "Subukang ilunsad ang window ng terminal sa fullscreen mode." },
+  "saveButton": { "message": "I-save ang mga Setting" },
+  "statusSaved": { "message": "Naka-save na ang mga setting!" },
+  "otherOption": { "message": "Iba pa (Manual Entry)" }
+}
