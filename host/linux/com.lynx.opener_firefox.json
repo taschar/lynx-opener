@@ -1,0 +1,9 @@
+{
+  "name": "com.lynx.opener",
+  "description": "Host for opening links in Lynx via terminal",
+  "path": "/home/programs/extensions/lynx_opener/host/lynx_opener.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "lynx-opener@tasos.dev"
+  ]
+}

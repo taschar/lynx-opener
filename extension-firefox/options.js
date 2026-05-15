@@ -40,8 +40,16 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
+  let defaultTerminal = 'x-terminal-emulator';
+  const platform = navigator.platform.toLowerCase();
+  if (platform.includes('mac')) {
+    defaultTerminal = 'Terminal';
+  } else if (platform.includes('win')) {
+    defaultTerminal = 'cmd';
+  }
+
   browserInstance.storage.sync.get({
-    terminal: 'x-terminal-emulator',
+    terminal: defaultTerminal,
     fullscreen: true
   }, (items) => {
     const select = document.getElementById('terminal-select');

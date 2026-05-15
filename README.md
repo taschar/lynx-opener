@@ -1,11 +1,16 @@
-# Lynx Opener v2.0.0
+# Lynx Opener v3.0
 
 [English version](#english) | [Ελληνική έκδοση](#greek)
 
 <a name="english"></a>
-## English
+## English (v3.0)
 
-Lynx Opener is a browser extension for Linux that allows you to open any link in the **Lynx** text-browser within a terminal emulator.
+Lynx Opener is a browser extension for **Linux, macOS, and Windows** that allows you to open any link in the **Lynx** text-browser within a terminal emulator.
+
+### New in v3.0
+- **Cross-Platform Support:** Works on Windows, macOS, and Linux.
+- **Improved Host Logic:** Enhanced terminal detection and fullscreen support.
+- **Universal Installer:** Simplified scripts for all operating systems.
 
 ### Installation
 
@@ -19,33 +24,33 @@ Lynx Opener is a browser extension for Linux that allows you to open any link in
 5.  Copy the **Extension ID** (needed for step 2).
 
 **For Firefox:**
-*   **Temporary (Testing):**
-    1.  Navigate to `about:debugging#/runtime/this-firefox`.
-    2.  Click **Load Temporary Add-on...**.
-    3.  Select the `manifest.json` inside the **`extension-firefox`** folder.
-*   **Permanent (Self-Hosted):**
-    1.  Firefox requires extensions to be signed to be installed permanently.
-    2.  To install for any user: You can use **Firefox Developer Edition** or **Nightly**, which allow unsigned extensions via `about:config` (`xpinstall.signatures.required` set to `false`).
-    3.  Go to `about:addons` -> Gear icon -> **Install Add-on From File...** and select a zipped version of the `extension-firefox` folder.
+1.  Navigate to `about:debugging#/runtime/this-firefox`.
+2.  Click **Load Temporary Add-on...**.
+3.  Select the `manifest.json` inside the **`extension-firefox`** folder.
 
 #### 2. Install the Native Messaging Host
+
+**Linux / macOS:**
 1.  Open a terminal in the repository root.
-2.  Run `./install.sh`.
+2.  Run `chmod +x install.sh && ./install.sh`.
 3.  Provide the Chrome Extension ID if prompted.
 
-### Settings & Options
-
-*   **Chrome/Brave:** Right-click the extension icon -> **Options**.
-*   **Firefox:**
-    1.  Go to `about:addons`.
-    2.  Click on **Lynx Opener**.
-    3.  Select the **Options** (or Preferences) tab.
-    4.  Here you can set your preferred **Terminal** and **Fullscreen** mode.
+**Windows:**
+1.  Open PowerShell as Administrator.
+2.  Run `./install/install_windows.ps1`.
+3.  Provide the Chrome Extension ID if prompted.
 
 ---
 
 <a name="greek"></a>
-## Ελληνικά (v2.0.0)
+## Ελληνικά (v3.0)
+
+Το Lynx Opener είναι μια επέκταση περιηγητή για **Linux, macOS και Windows** που σας επιτρέπει να ανοίγετε οποιονδήποτε σύνδεσμο στον text-browser **Lynx** μέσα σε έναν εξομοιωτή τερματικού.
+
+### Νέα στην έκδοση 3.0
+- **Υποστήριξη πολλαπλών πλατφορμών:** Λειτουργεί σε Windows, macOS και Linux.
+- **Βελτιωμένη Λογική Host:** Καλύτερος εντοπισμός τερματικού και υποστήριξη πλήρους οθόνης.
+- **Καθολικός Εγκαταστάτης:** Απλοποιημένα scripts για όλα τα λειτουργικά συστήματα.
 
 ### Εγκατάσταση
 
@@ -59,23 +64,21 @@ Lynx Opener is a browser extension for Linux that allows you to open any link in
 5.  Αντιγράψτε το **Extension ID**.
 
 **Για Firefox:**
-*   **Προσωρινή (για δοκιμή):**
-    1.  Μεταβείτε στο `about:debugging#/runtime/this-firefox`.
-    2.  Κάντε κλικ στο **Load Temporary Add-on...**.
-    3.  Επιλέξτε το `manifest.json` μέσα στο φάκελο **`extension-firefox`**.
-*   **Μόνιμη Εγκατάσταση:**
-    1.  Ο Firefox απαιτεί οι επεκτάσεις να είναι "υπογεγραμμένες" (signed) από το Mozilla για μόνιμη εγκατάσταση.
-    2.  Για εγκατάσταση σε οποιονδήποτε χρήστη χωρίς υπογραφή: Χρησιμοποιήστε τον **Firefox Developer Edition** ή **Nightly**. Ρυθμίστε το `xpinstall.signatures.required` σε `false` στο `about:config`.
-    3.  Μεταβείτε στο `about:addons` -> Εικονίδιο γραναζιού -> **Install Add-on From File...** και επιλέξτε ένα αρχείο .zip του φακέλου `extension-firefox`.
+1.  Μεταβείτε στο `about:debugging#/runtime/this-firefox`.
+2.  Κάντε κλικ στο **Load Temporary Add-on...**.
+3.  Επιλέξτε το `manifest.json` μέσα στο φάκελο **`extension-firefox`**.
 
-### Ρυθμίσεις (Options)
+#### 2. Εγκατάσταση του Native Messaging Host
 
-*   **Chrome/Brave:** Δεξί κλικ στο εικονίδιο της επέκτασης -> **Επιλογές**.
-*   **Firefox:**
-    1.  Μεταβείτε στο `about:addons`.
-    2.  Κάντε κλικ στο **Lynx Opener**.
-    3.  Επιλέξτε την καρτέλα **Options** (ή Preferences/Ρυθμίσεις).
-    4.  Εκεί μπορείτε να ορίσετε το **Τερματικό** και τη λειτουργία **Πλήρους Οθόνης**.
+**Linux / macOS:**
+1.  Ανοίξτε ένα τερματικό στο φάκελο του έργου.
+2.  Εκτελέστε `chmod +x install.sh && ./install.sh`.
+3.  Δώστε το Chrome Extension ID αν ζητηθεί.
+
+**Windows:**
+1.  Ανοίξτε το PowerShell ως Διαχειριστής.
+2.  Εκτελέστε `./install/install_windows.ps1`.
+3.  Δώστε το Chrome Extension ID αν ζητηθεί.
 
 ---
 ## License

@@ -4,6 +4,7 @@ import json
 import struct
 import subprocess
 import os
+import platform
 
 # Helper function that sends a message to the extension.
 def send_message(message):
@@ -23,37 +24,65 @@ def get_message():
     return json.loads(message)
 
 def open_lynx(url, terminal, fullscreen):
+    system = platform.system()
     try:
-        if terminal == 'gnome-terminal':
-            cmd = [terminal]
-            if fullscreen: cmd.append('--full-screen')
-            cmd.extend(['--', 'lynx', url])
-        elif terminal == 'konsole':
-            cmd = [terminal]
-            if fullscreen: cmd.append('--fullscreen')
-            cmd.extend(['-e', 'lynx', url])
-        elif terminal == 'xfce4-terminal':
-            cmd = [terminal]
-            if fullscreen: cmd.append('--fullscreen')
-            # Using --command instead of -e for better handling of arguments
-            cmd.extend(['--command', f'lynx "{url}"'])
-        elif terminal == 'xterm':
-            cmd = [terminal]
-            if fullscreen: cmd.append('-fullscreen')
-            cmd.extend(['-e', 'lynx', url])
-        elif terminal == 'kitty':
-            cmd = [terminal]
-            if fullscreen: cmd.append('--start-as=fullscreen')
-            cmd.extend(['lynx', url])
-        elif terminal == 'alacritty':
-            cmd = [terminal]
-            if fullscreen: cmd.extend(['--option', 'window.startup_mode=Fullscreen'])
-            cmd.extend(['-e', 'lynx', url])
+        if system == "Linux":
+            if terminal == 'gnome-terminal':
+                cmd = [terminal]
+                if fullscreen: cmd.append('--full-screen')
+                cmd.extend(['--', 'lynx', url])
+            elif terminal == 'konsole':
+                cmd = [terminal]
+                if fullscreen: cmd.append('--fullscreen')
+                cmd.extend(['-e', 'lynx', url])
+            elif terminal == 'xfce4-terminal':
+                cmd = [terminal]
+                if fullscreen: cmd.append('--fullscreen')
+                cmd.extend(['--command', f'lynx "{url}"'])
+            elif terminal == 'xterm':
+                cmd = [terminal]
+                if fullscreen: cmd.append('-fullscreen')
+                cmd.extend(['-e', 'lynx', url])
+            elif terminal == 'kitty':
+                cmd = [terminal]
+                if fullscreen: cmd.append('--start-as=fullscreen')
+                cmd.extend(['lynx', url])
+            elif terminal == 'alacritty':
+                cmd = [terminal]
+                if fullscreen: cmd.extend(['--option', 'window.startup_mode=Fullscreen'])
+                cmd.extend(['-e', 'lynx', url])
+            else:
+                # Default Linux fallback
+                cmd = [terminal if terminal != 'x-terminal-emulator' else 'x-terminal-emulator', '-e', 'lynx', url]
+        
+        elif system == "Darwin":  # macOS
+            if terminal == "iTerm":
+                # iTerm2 specific logic could go here
+                cmd = ["open", "-a", "iTerm", f"lynx '{url}'"]
+            else:
+                # Default Terminal.app
+                if fullscreen:
+                    # Use AppleScript to toggle fullscreen after opening
+                    applescript = f'tell application "Terminal" to do script "lynx \'{url}\'"; activate; tell application "System Events" to keystroke "f" using {{control down, command down}}'
+                    cmd = ["osascript", "-e", applescript]
+                else:
+                    cmd = ["open", "-a", "Terminal", f"lynx '{url}'"]
+        
+        elif system == "Windows":
+            if terminal == "wt": # Windows Terminal
+                cmd = ["wt"]
+                if fullscreen: cmd.append("-f")
+                cmd.extend(["lynx", url])
+            else:
+                # Use 'start' via cmd to launch in a new window
+                # Windows doesn't easily support fullscreen via command line for cmd.exe
+                cmd = ["cmd.exe", "/c", "start", "lynx", url]
+        
         else:
-            cmd = [terminal, '-e', 'lynx', url]
+            return {"status": "error", "message": f"Unsupported OS: {system}"}
 
         subprocess.Popen(cmd, start_new_session=True)
-        return {"status": "success", "message": f"Launched {terminal} (Fullscreen: {fullscreen})"}
+        return {"status": "success", "message": f"Launched on {system} (Terminal: {terminal}, Fullscreen: {fullscreen})"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
@@ -62,7 +91,13 @@ def main():
         try:
             message = get_message()
             url = message.get('url')
-            terminal = message.get('terminal', 'x-terminal-emulator')
+            # Detect system to set appropriate default terminal
+            system = platform.system()
+            default_terminal = 'x-terminal-emulator'
+            if system == 'Darwin': default_terminal = 'Terminal'
+            if system == 'Windows': default_terminal = 'cmd'
+            
+            terminal = message.get('terminal', default_terminal)
             fullscreen = message.get('fullscreen', True)
             
             if url:
